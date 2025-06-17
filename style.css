@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Responsive Calculator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- 🌙/☀️ Toggle Theme Switch -->
+  <div class="theme-toggle">
+    <label>
+      <input type="checkbox" id="themeSwitch" />
+      🌙/☀️ Toggle Theme
+    </label>
+  </div>
+
+  <!-- 🧮 Calculator -->
+  <div class="calculator">
+    <div id="display">0</div>
+    <div class="buttons">
+      <button onclick="clearDisplay()">C</button>
+      <button onclick="appendValue('/')">÷</button>
+      <button onclick="appendValue('*')">×</button>
+      <button onclick="appendValue('-')">−</button>
+
+      <button onclick="appendValue('7')">7</button>
+      <button onclick="appendValue('8')">8</button>
+      <button onclick="appendValue('9')">9</button>
+      <button onclick="appendValue('+')">+</button>
+
+      <button onclick="appendValue('4')">4</button>
+      <button onclick="appendValue('5')">5</button>
+      <button onclick="appendValue('6')">6</button>
+      <button onclick="calculate()">=</button>
+
+      <button onclick="appendValue('1')">1</button>
+      <button onclick="appendValue('2')">2</button>
+      <button onclick="appendValue('3')">3</button>
+      <button onclick="appendValue('0')">0</button>
+
+      <button onclick="appendValue('.')">.</button>
+      <button onclick="deleteLast()">DEL</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+ {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: centbodyer;
+  height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+  color: #000;
+  transition: 0.3s;
+}
+
+.theme-toggle {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 16px;
+}
+
+.calculator {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+#display {
+  height: 60px;
+  background: #eee;
+  margin-bottom: 20px;
+  text-align: right;
+  padding: 15px;
+  font-size: 24px;
+  border-radius: 10px;
+  overflow-x: auto;
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 60px);
+  grid-gap: 10px;
+}
+
+button {
+  height: 60px;
+  font-size: 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: #ddd;
+  color: #000;
+  transition: 0.2s;
+}
+
+button:hover {
+  background-color: #bbb;
+}
+
+/* Dark Theme */
+body.dark {
+  background-color: #1e1e1e;
+  color: #fff;
+}
+
+body.dark .calculator {
+  background: #333;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+body.dark button {
+  background-color: #555;
+  color: #fff;
+}
+
+body.dark button:hover {
+  background-color: #777;
+}
+
+body.dark #display {
+  background: #444;
+  color: #fff;
+}
